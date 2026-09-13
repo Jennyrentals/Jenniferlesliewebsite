@@ -1,0 +1,4315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Jenifer Leslie Rentals - Browse available rental homes and apartments and send your property preferences.">
+
+<title>Jenifer Leslie Rentals | Homes & Apartments for Rent</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+:root {
+    --ink: #17202a;
+    --muted: #68717b;
+    --gold: #b88a44;
+    --gold-light: #f4eadb;
+    --cream: #faf8f4;
+    --line: #e7e9ec;
+    --white: #ffffff;
+    --shadow: 0 18px 45px rgba(18,25,32,.09);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: #f7f8fa;
+    color: var(--ink);
+    line-height: 1.6;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    width: min(1200px, calc(100% - 40px));
+    margin: auto;
+}
+
+section {
+    scroll-margin-top: 90px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: rgba(255,255,255,.96);
+    backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid var(--line);
+}
+
+.nav {
+    height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: -.6px;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4f5861;
+
+    transition: .2s;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.nav-cta {
+    background: var(--ink) !important;
+    color: #fff !important;
+
+    padding: 11px 17px;
+    border-radius: 7px;
+}
+
+.menu-toggle {
+    display: none;
+
+    border: 0;
+    background: transparent;
+
+    font-size: 27px;
+    color: var(--ink);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 720px;
+
+    padding: 155px 0 105px;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(9,14,19,.78),
+            rgba(9,14,19,.40)
+        ),
+        url("https://photos.zillowstatic.com/fp/a6867873613d500cd225a2aaa970065e-cc_ft_768.webp")
+        center/cover no-repeat;
+
+    color: #fff;
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    color: #f2dfc0;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    margin-bottom: 18px;
+}
+
+.eyebrow:before {
+    content: "";
+
+    width: 34px;
+    height: 1px;
+
+    background: var(--gold);
+}
+
+.hero h1 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(44px, 6vw, 76px);
+
+    line-height: 1.03;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 20px;
+}
+
+.hero p {
+    max-width: 650px;
+
+    color: rgba(255,255,255,.86);
+
+    font-size: 17px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 13px;
+
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+}
+
+.hero-trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 26px;
+    margin-top: 30px;
+    color: rgba(255,255,255,.88);
+    font-size: 13px;
+}
+
+.hero-trust span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hero-trust span:before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #d8b26f;
+    box-shadow: 0 0 0 4px rgba(216,178,111,.16);
+}
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 13px 20px;
+
+    border-radius: 7px;
+
+    border: 1px solid transparent;
+
+    font-weight: 700;
+
+    font-size: 14px;
+
+    transition: .25s;
+}
+
+.btn-primary {
+    background: #fff;
+    color: var(--ink);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+.btn-dark {
+    background: var(--ink);
+    color: #fff;
+}
+
+.btn-dark:hover {
+    background: var(--gold);
+}
+
+.btn-outline {
+    border-color: rgba(255,255,255,.5);
+    color: #fff;
+}
+
+.btn-outline:hover {
+    background: #fff;
+    color: var(--ink);
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.section {
+    padding: 95px 0;
+}
+
+.section-head {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    align-items: end;
+
+    margin-bottom: 42px;
+}
+
+.section-head h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(32px, 4vw, 48px);
+
+    line-height: 1.1;
+}
+
+.section-head p {
+    max-width: 560px;
+
+    color: var(--muted);
+}
+
+.kicker {
+    color: var(--gold);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.7px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   SEARCH / MESSAGE FORM
+========================================================= */
+
+.search-wrap {
+    margin-top: -58px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+.search-box {
+    background: #fff;
+
+    border: 1px solid var(--line);
+
+    border-radius: 15px;
+
+    padding: 26px;
+
+    box-shadow: var(--shadow);
+}
+
+.search-box h3 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 25px;
+
+    margin-bottom: 5px;
+}
+
+.search-box > p {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    margin-bottom: 20px;
+}
+
+.property-search-form {
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 14px;
+}
+
+.field {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.field label {
+    font-size: 12px;
+
+    font-weight: 800;
+
+    color: #4f5861;
+}
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+
+    border: 1px solid #dfe3e7;
+
+    background: #fff;
+
+    border-radius: 7px;
+
+    padding: 12px 13px;
+
+    outline: none;
+
+    color: var(--ink);
+
+    transition: .2s;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+    border-color: var(--gold);
+
+    box-shadow: 0 0 0 3px rgba(184,138,68,.10);
+}
+
+.field-full {
+    grid-column: 1 / -1;
+}
+
+.field textarea {
+    min-height: 105px;
+
+    resize: vertical;
+}
+
+.form-actions {
+    grid-column: 1 / -1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.form-note {
+    font-size: 12px;
+
+    color: var(--muted);
+}
+
+.search-submit {
+    border: 0;
+
+    background: var(--ink);
+
+    color: #fff;
+
+    padding: 13px 21px;
+
+    border-radius: 7px;
+
+    font-weight: 700;
+}
+
+.search-submit:hover {
+    background: var(--gold);
+}
+
+.search-submit:disabled {
+    opacity: .65;
+
+    cursor: wait;
+}
+
+
+/* SUCCESS MESSAGE */
+
+.form-success {
+    display: none;
+
+    text-align: center;
+
+    padding: 34px 25px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 12px;
+
+    background: var(--cream);
+}
+
+.form-success.show {
+    display: block;
+}
+
+.success-icon {
+    width: 58px;
+    height: 58px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 14px;
+
+    background: var(--gold-light);
+
+    color: var(--gold);
+
+    font-size: 28px;
+
+    font-weight: 800;
+}
+
+.form-success h3 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+.form-success p {
+    color: var(--muted);
+
+    max-width: 650px;
+
+    margin: 0 auto 20px;
+
+    font-size: 14px;
+}
+
+.form-success button {
+    border: 0;
+
+    background: var(--ink);
+
+    color: #fff;
+
+    padding: 11px 18px;
+
+    border-radius: 7px;
+
+    font-weight: 700;
+}
+
+.form-success a {
+    display: inline-block;
+    margin-left: 8px;
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-success a:hover {
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   PROPERTIES
+========================================================= */
+
+.properties {
+    background: #fff;
+}
+
+.property-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 24px;
+}
+
+.property-card {
+    background: #fff;
+
+    border: 1px solid var(--line);
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow: 0 7px 25px rgba(18,25,32,.05);
+
+    transition: .25s;
+}
+
+.property-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: var(--shadow);
+}
+
+.property-image {
+    height: 245px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    background: #e9ecef;
+}
+
+.property-image img {
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: .4s;
+}
+
+.property-card:hover .property-image img {
+    transform: scale(1.035);
+}
+
+.status {
+    position: absolute;
+
+    top: 14px;
+    left: 14px;
+
+    background: #fff;
+
+    color: #27754d;
+
+    border-radius: 999px;
+
+    padding: 6px 10px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: .7px;
+}
+
+.price {
+    position: absolute;
+
+    right: 14px;
+    bottom: 14px;
+
+    background: rgba(23,32,42,.94);
+
+    color: #fff;
+
+    border-radius: 7px;
+
+    padding: 8px 11px;
+
+    font-weight: 800;
+}
+
+.price span {
+    font-size: 10px;
+
+    color: #cbd1d6;
+
+    font-weight: 500;
+}
+
+.photo-count {
+    position: absolute;
+    left: 14px;
+    bottom: 14px;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 11px;
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 7px;
+    background: rgba(23,32,42,.88);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    transition: .2s;
+}
+
+.photo-count:before {
+    content: "";
+    width: 13px;
+    height: 10px;
+    border: 1px solid #fff;
+    border-radius: 2px;
+    background: linear-gradient(135deg, transparent 45%, #fff 46%, #fff 55%, transparent 56%);
+}
+
+.property-card:hover .photo-count {
+    background: var(--gold);
+    border-color: var(--gold);
+}
+
+.property-content {
+    padding: 21px;
+}
+
+.property-content h3 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 22px;
+
+    margin-bottom: 5px;
+}
+
+.location {
+    font-size: 13px;
+
+    color: var(--muted);
+
+    margin-bottom: 14px;
+}
+
+.features {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.features span {
+    font-size: 11px;
+
+    background: #f5f6f7;
+
+    border: 1px solid #eceef0;
+
+    padding: 6px 8px;
+
+    border-radius: 5px;
+}
+
+.property-bottom {
+    display: flex;
+
+    gap: 9px;
+
+    margin-top: 18px;
+}
+
+.details-btn,
+.apply-small {
+    flex: 1;
+
+    text-align: center;
+
+    border-radius: 6px;
+
+    padding: 10px 8px;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+.details-btn {
+    background: var(--ink);
+
+    color: #fff;
+
+    border: 0;
+}
+
+.details-btn:hover {
+    background: var(--gold);
+}
+
+.apply-small {
+    border: 1px solid #dfe3e7;
+}
+
+.apply-small:hover {
+    border-color: var(--gold);
+
+    color: var(--gold);
+}
+
+.tour-btn {
+    flex: 1;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px 8px;
+    font-size: 12px;
+    font-weight: 800;
+    background: var(--gold);
+    color: #fff;
+    border: 0;
+}
+
+.tour-btn:hover {
+    background: #9d7438;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+.about-image {
+    height: 520px;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+}
+
+.about-image img {
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.about-copy h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 46px;
+
+    line-height: 1.1;
+
+    margin-bottom: 17px;
+}
+
+.about-copy p {
+    color: var(--muted);
+
+    margin-bottom: 15px;
+}
+
+.stats {
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.stat {
+    padding: 18px;
+
+    background: #fff;
+
+    border: 1px solid var(--line);
+
+    border-radius: 9px;
+}
+
+.stat strong {
+    display: block;
+
+    font-size: 25px;
+}
+
+.stat span {
+    font-size: 11px;
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.services {
+    background: var(--cream);
+}
+
+.service-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 20px;
+}
+
+.service {
+    background: #fff;
+
+    border: 1px solid var(--line);
+
+    border-radius: 12px;
+
+    padding: 27px;
+}
+
+.service-icon {
+    width: 45px;
+    height: 45px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 9px;
+
+    background: var(--gold-light);
+
+    font-size: 20px;
+
+    margin-bottom: 17px;
+}
+
+.service h3 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 21px;
+
+    margin-bottom: 8px;
+}
+
+.service p {
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact {
+    background: var(--ink);
+
+    color: #fff;
+}
+
+.contact-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 55px;
+
+    align-items: center;
+}
+
+.contact h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 48px;
+
+    line-height: 1.1;
+
+    margin-bottom: 15px;
+}
+
+.contact p {
+    color: #bfc6cc;
+}
+
+.contact-card {
+    background: #fff;
+
+    color: var(--ink);
+
+    border-radius: 13px;
+
+    padding: 27px;
+}
+
+.contact-row {
+    display: flex;
+
+    gap: 13px;
+
+    align-items: flex-start;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.contact-row:last-child {
+    border-bottom: 0;
+}
+
+.contact-row b {
+    display: block;
+
+    font-size: 13px;
+}
+
+.contact-row span {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-top: 2px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    background: #10171e;
+
+    color: #aeb7bf;
+
+    padding: 55px 0 25px;
+}
+
+.footer-grid {
+    display: grid;
+
+    grid-template-columns: 1.4fr 1fr 1fr;
+
+    gap: 45px;
+}
+
+.footer-logo {
+    color: #fff;
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    margin-bottom: 12px;
+}
+
+.footer-logo span {
+    color: var(--gold);
+}
+
+footer p,
+footer li {
+    font-size: 13px;
+}
+
+footer ul {
+    list-style: none;
+
+    display: grid;
+
+    gap: 8px;
+}
+
+footer h4 {
+    color: #fff;
+
+    margin-bottom: 13px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.1);
+
+    margin-top: 35px;
+
+    padding-top: 20px;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   FLOATING EMAIL
+========================================================= */
+
+.floating-email {
+    position: fixed;
+
+    right: 20px;
+
+    bottom: 20px;
+
+    z-index: 900;
+
+    width: 54px;
+
+    height: 54px;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    background: var(--gold);
+
+    color: #fff;
+
+    font-size: 21px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,.2);
+
+    transition: .2s;
+}
+
+.floating-email:hover {
+    transform: translateY(-3px);
+
+    background: #9d7438;
+}
+
+
+/* =========================================================
+   PROPERTY GALLERY MODAL
+========================================================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(6,10,14,.82);
+
+    z-index: 2000;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-panel {
+    width: min(1050px,100%);
+
+    max-height: 92vh;
+
+    overflow: auto;
+
+    background: #fff;
+
+    border-radius: 14px;
+}
+
+.modal-gallery {
+    background: #10171e;
+
+    position: relative;
+}
+
+.gallery-main {
+    height: min(62vh,560px);
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.gallery-main img {
+    height: 100%;
+
+    width: 100%;
+
+    object-fit: contain;
+}
+
+.gallery-arrow {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 44px;
+
+    height: 44px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.25);
+
+    background: rgba(0,0,0,.5);
+
+    color: #fff;
+
+    font-size: 25px;
+
+    z-index: 2;
+}
+
+.gallery-arrow:hover {
+    background: rgba(0,0,0,.8);
+}
+
+.gallery-prev {
+    left: 15px;
+}
+
+.gallery-next {
+    right: 15px;
+}
+
+.gallery-counter {
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 14px;
+
+    transform: translateX(-50%);
+
+    background: rgba(0,0,0,.55);
+
+    color: #fff;
+
+    border-radius: 999px;
+
+    padding: 5px 10px;
+
+    font-size: 11px;
+}
+
+.gallery-dots {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 12px;
+
+    background: #10171e;
+}
+
+.gallery-dot {
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    border: 0;
+
+    background: #737b83;
+
+    padding: 0;
+}
+
+.gallery-dot.active {
+    background: #fff;
+}
+
+.modal-body {
+    padding: 27px;
+}
+
+.modal-close {
+    position: absolute;
+
+    right: 18px;
+
+    top: 14px;
+
+    border: 0;
+
+    background: rgba(0,0,0,.55);
+
+    color: #fff;
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+    font-size: 23px;
+
+    z-index: 4;
+}
+
+.modal-title-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    align-items: start;
+}
+
+.modal-body h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 32px;
+
+    line-height: 1.1;
+}
+
+.modal-price {
+    font-weight: 800;
+
+    font-size: 19px;
+
+    white-space: nowrap;
+}
+
+.modal-location {
+    color: var(--muted);
+
+    margin: 7px 0 16px;
+}
+
+.modal-features {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 18px;
+}
+
+.modal-description {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    margin-bottom: 20px;
+}
+
+.modal-actions {
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:900px) {
+
+    .nav-links {
+        position: absolute;
+
+        top: 76px;
+
+        left: 0;
+
+        width: 100%;
+
+        background: #fff;
+
+        border-bottom: 1px solid var(--line);
+
+        padding: 15px 20px;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links a {
+        display: block;
+
+        padding: 12px 4px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .property-search-form {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .property-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .about-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:620px) {
+
+    .container {
+        width: min(100% - 28px,1200px);
+    }
+
+    .nav {
+        height: 68px;
+    }
+
+    .nav-links {
+        top: 68px;
+    }
+
+    .hero {
+        min-height: 670px;
+
+        padding: 125px 0 85px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+
+        letter-spacing: -1px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+
+    .section-head {
+        display: block;
+    }
+
+    .section-head p {
+        margin-top: 12px;
+    }
+
+    .property-search-form {
+        grid-template-columns: 1fr;
+    }
+
+    .field-full {
+        grid-column: auto;
+    }
+
+    .form-actions {
+        display: block;
+    }
+
+    .form-note {
+        margin-bottom: 12px;
+    }
+
+    .search-submit {
+        width: 100%;
+    }
+
+    .property-grid,
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image {
+        height: 380px;
+    }
+
+    .about-copy h2,
+    .contact h2 {
+        font-size: 38px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .stat {
+        padding: 13px;
+    }
+
+    .stat strong {
+        font-size: 20px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal {
+        padding: 10px;
+    }
+
+    .gallery-main {
+        height: 50vh;
+    }
+
+    .modal-title-row {
+        display: block;
+    }
+
+    .modal-price {
+        margin-top: 10px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+<nav class="nav container">
+
+    <a href="#home" class="logo">
+        Jenifer Leslie<span> Rentals</span>
+    </a>
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open menu">
+        ☰
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+
+        <li>
+            <a href="#home">Home</a>
+        </li>
+
+        <li>
+            <a href="#properties">Properties</a>
+        </li>
+
+        <li>
+            <a href="#about">About</a>
+        </li>
+
+        <li>
+            <a href="#services">Services</a>
+        </li>
+
+        <li>
+            <a href="#contact">Contact</a>
+        </li>
+
+        <li>
+            <a href="#message" class="nav-cta">
+                Send a Message
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+</header>
+
+
+
+<main>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero" id="home">
+
+<div class="container">
+
+<div class="hero-content">
+
+    <div class="eyebrow">
+        Homes made easier
+    </div>
+
+    <h1>
+        Find a place that feels like home.
+    </h1>
+
+    <p>
+        Browse available homes and apartments, view property
+        photos and details, and send us your rental preferences
+        so we can respond with suitable options.
+    </p>
+
+    <p>
+        Jenifer Leslie Rentals offers rental properties across six states:
+        North Carolina, Arizona, Texas, Ohio, Florida and Georgia.
+    </p>
+
+    <div class="hero-actions">
+
+        <a
+            class="btn btn-primary"
+            href="#properties">
+            View Properties
+        </a>
+
+        <a
+            class="btn btn-outline"
+            href="#message">
+            Send a Message
+        </a>
+
+    </div>
+
+    <div class="hero-trust" aria-label="Why renters choose us">
+        <span>Properties across 6 states</span>
+        <span>Featured homes and apartments</span>
+        <span>Easy tour requests online</span>
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     RENTAL REQUEST FORM
+========================================================= -->
+
+<section
+    class="search-wrap container"
+    id="message">
+
+<div class="search-box">
+
+    <div class="kicker">
+        Tell us what you need
+    </div>
+
+    <h3>
+        Send a Rental Request
+    </h3>
+
+    <p>
+        Share your preferred ZIP code, bedrooms, bathrooms
+        and budget. We will review your request and contact
+        you by email.
+    </p>
+
+
+<form
+    action="https://formspree.io/f/xrpzjlzj"
+    method="POST"
+    class="property-search-form"
+    id="propertyForm">
+
+
+    <div class="field">
+
+        <label for="name">
+            Full Name *
+        </label>
+
+        <input
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Your name"
+            required>
+
+    </div>
+
+
+    <div class="field">
+
+        <label for="email">
+            Email Address *
+        </label>
+
+        <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            required>
+
+    </div>
+
+
+    <div class="field">
+
+        <label for="phone">
+            Phone Number
+        </label>
+
+        <input
+            id="phone"
+            name="phone"
+            type="tel"
+            placeholder="Your phone number">
+
+    </div>
+
+
+    <div class="field">
+
+        <label for="zip">
+            Preferred ZIP Code *
+        </label>
+
+        <input
+            id="zip"
+            name="preferred_zip_code"
+            type="text"
+            inputmode="numeric"
+            placeholder="e.g. 75001"
+            required>
+
+    </div>
+
+
+    <div class="field">
+
+        <label for="propertyType">
+            Property Type *
+        </label>
+
+        <select
+            id="propertyType"
+            name="property_type"
+            required>
+
+            <option value="">
+                Select type
+            </option>
+
+            <option>
+                Apartment
+            </option>
+
+            <option>
+                House
+            </option>
+
+            <option>
+                Townhouse
+            </option>
+
+            <option>
+                Condo
+            </option>
+
+            <option>
+                Any
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="field">
+
+        <label for="bedrooms">
+            Bedrooms *
+        </label>
+
+        <select
+            id="bedrooms"
+            name="bedrooms"
+            required>
+
+            <option value="">
+                Select
+            </option>
+
+            <option>
+                1 Bedroom
+            </option>
+
+            <option>
+                2 Bedrooms
+            </option>
+
+            <option>
+                3 Bedrooms
+            </option>
+
+            <option>
+                4 Bedrooms
+            </option>
+
+            <option>
+                5+ Bedrooms
+            </option>
+
+            <option>
+                Any
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="field">
+
+        <label for="bathrooms">
+            Bathrooms *
+        </label>
+
+        <select
+            id="bathrooms"
+            name="bathrooms"
+            required>
+
+            <option value="">
+                Select
+            </option>
+
+            <option>
+                1 Bathroom
+            </option>
+
+            <option>
+                1.5 Bathrooms
+            </option>
+
+            <option>
+                2 Bathrooms
+            </option>
+
+            <option>
+                2.5 Bathrooms
+            </option>
+
+            <option>
+                3+ Bathrooms
+            </option>
+
+            <option>
+                Any
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="field">
+
+        <label for="budget">
+            Rental Budget *
+        </label>
+
+        <select
+            id="budget"
+            name="rental_budget"
+            required>
+
+            <option value="">
+                Select budget
+            </option>
+
+            <option>
+                Under $1,000
+            </option>
+
+            <option>
+                $1,000 - $1,299
+            </option>
+
+            <option>
+                $1,300 - $1,599
+            </option>
+
+            <option>
+                $1,600 - $1,999
+            </option>
+
+            <option>
+                $2,000+
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="field">
+
+        <label for="moveIn">
+            Preferred Move-in Date
+        </label>
+
+        <input
+            id="moveIn"
+            name="move_in_date"
+            type="date">
+
+    </div>
+
+
+    <div class="field">
+
+        <label for="stay">
+            Lease Preference
+        </label>
+
+        <select
+            id="stay"
+            name="lease_preference">
+
+            <option value="">
+                Select
+            </option>
+
+            <option>
+                Short-term
+            </option>
+
+            <option>
+                Long-term
+            </option>
+
+            <option>
+                Flexible
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="field field-full">
+
+        <label for="messageText">
+            Message
+        </label>
+
+        <textarea
+            id="messageText"
+            name="message"
+            placeholder="Tell us anything else about the property you are looking for..."></textarea>
+
+    </div>
+
+
+    <input
+        type="hidden"
+        name="_subject"
+        value="New Jenifer Leslie Rentals Property Request">
+
+
+    <div class="form-actions">
+
+        <div class="form-note">
+            By submitting, you are asking Jenifer Leslie Rentals
+            to contact you about available rental options.
+        </div>
+
+        <button
+            class="search-submit"
+            type="submit">
+
+            ✉ Send Message
+
+        </button>
+
+    </div>
+
+
+</form>
+
+
+<!-- CUSTOM THANK YOU MESSAGE -->
+
+<div
+    class="form-success"
+    id="formSuccess"
+    aria-live="polite">
+
+    <div class="success-icon">
+        ✓
+    </div>
+
+    <h3>
+        Thank You!
+    </h3>
+
+    <p>
+        Your property request has been received successfully.
+        We will review the details you provided and send you
+        an email regarding the property options that match
+        your preferences.
+    </p>
+
+    <button
+        type="button"
+        id="anotherMessage">
+
+        Send Another Message
+
+    </button>
+
+    <a href="#properties">
+        Return to Properties
+    </a>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PROPERTIES
+========================================================= -->
+
+<section
+    class="section properties"
+    id="properties">
+
+<div class="container">
+
+
+<div class="section-head">
+
+    <div>
+
+        <div class="kicker">
+            Available homes
+        </div>
+
+        <h2>
+            Featured Properties
+        </h2>
+
+    </div>
+
+    <p>
+        Explore the current listings below. Select
+        <strong>View Property</strong> to open the photo gallery
+        and see the full listing information.
+    </p>
+
+</div>
+
+
+
+<div class="property-grid">
+
+
+
+<!-- ======================================================
+     PROPERTY 1
+====================================================== -->
+
+<article
+class="property-card"
+
+data-title="Modern 2 Bedroom Home"
+
+data-price="$1,300 / month"
+
+data-location="North Carolina"
+
+data-description="Modern two-bedroom rental home with two bathrooms and parking. Contact us for current availability and property details."
+
+data-images='[
+"https://photos.zillowstatic.com/fp/ea2fad76319d3c9060e3ee4d6bae19ec-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/51de10771e6c0f1f16959119811356d4-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/1bc3027cd84c98d486755cb6841e11c3-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/83dc1e8dda844f4cb0c1f028b1abb164-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/c30d61b3c4008667241d5417f4da0f8a-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/872d2ce7e5fb37ac3b589a99b1c91cb8-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/3c6884b9ff599f3ea9e059b743e00bfc-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/b3cf1098f14a145aeddf734b76e3d5c6-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/691394d2b7ce316976a80a769639c422-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/24f304291ae9562c115736ca05f737df-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/ba4dcabaed30379ce4325c9fd37fa419-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/8836aa5f5e0d436550631a7317d4dbe1-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/1f6cfce8c424de707880264db4608b21-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/6d7171405384b2d992af32fd3f6cc0a6-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/16feb56d3ed5b557d1fd351cd3cbe10a-uncropped_scaled_within_1536_1152.webp"
+]'>
+
+<div class="property-image">
+
+<img
+src="https://photos.zillowstatic.com/fp/ba08473ab72e0943bbea71fd2582d539-cc_ft_768.webp"
+alt="Modern two bedroom home in North Carolina">
+
+<div class="status">
+AVAILABLE
+</div>
+
+<div class="price">
+$1,300
+<span>/ month</span>
+</div>
+
+</div>
+
+
+<div class="property-content">
+
+<h3>
+Modern 2 Bedroom Home
+</h3>
+
+<div class="location">
+📍 North Carolina
+</div>
+
+<div class="features">
+
+<span>
+🛏 2 Beds
+</span>
+
+<span>
+🚿 2 Baths
+</span>
+
+<span>
+🚗 Parking
+</span>
+
+</div>
+
+
+<div class="property-bottom">
+
+<button
+class="details-btn view-property"
+type="button">
+
+View Property
+
+</button>
+
+<a
+href="#message"
+class="apply-small">
+
+Contact Us
+
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<!-- ======================================================
+     PROPERTY 2
+====================================================== -->
+
+<article
+class="property-card"
+
+data-title="Spacious 3 Bedroom Home"
+
+data-price="$1,600 / month"
+
+data-location="Texas"
+
+data-description="Spacious three-bedroom rental home with two bathrooms and garage parking. Contact us for current availability and property details."
+
+data-images='[
+"https://photos.zillowstatic.com/fp/676ea29c6ea5d370f5a7eafc8fc823e0-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/3d403d923d80830d2af260b644dd28a3-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/0443c3bc8dfc8b3a4776593007838f85-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/be951cb78ac613e4f71681097aa1f9bf-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/e0ddba625fa7af010169a361bd85550c-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/81e1d37db180b7d8ce2827cde7fa13a7-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/d19329a458390f13764e7442de795c72-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/aa600ce505306e845ee7ee0edc6ae5cd-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/fab2b854919cd489a9d3761e69fe6668-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/b5084466bec04235b56e444036cffcc7-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/2c4da6fabb7bdc69eff24469e1dc6564-uncropped_scaled_within_1536_1152.webp"
+]'>
+
+<div class="property-image">
+
+<img
+src="https://photos.zillowstatic.com/fp/7cffb041d738eb209664023fd05b9c24-uncropped_scaled_within_1536_1152.webp"
+alt="Spacious three bedroom home in Texas">
+
+<div class="status">
+AVAILABLE
+</div>
+
+<div class="price">
+$1,600
+<span>/ month</span>
+</div>
+
+</div>
+
+
+<div class="property-content">
+
+<h3>
+Spacious 3 Bedroom Home
+</h3>
+
+<div class="location">
+📍 Texas
+</div>
+
+<div class="features">
+
+<span>
+🛏 3 Beds
+</span>
+
+<span>
+🚿 2 Baths
+</span>
+
+<span>
+🚗 Garage
+</span>
+
+</div>
+
+
+<div class="property-bottom">
+
+<button
+class="details-btn view-property"
+type="button">
+
+View Property
+
+</button>
+
+<a
+href="#message"
+class="apply-small">
+
+Contact Us
+
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<!-- ======================================================
+     PROPERTY 3
+====================================================== -->
+
+<article
+class="property-card"
+
+data-title="Cozy 2 Bedroom Home"
+
+data-price="$1,300 / month"
+
+data-location="Florida"
+
+data-description="Cozy two-bedroom rental home with two bathrooms and pet-friendly features. Contact us for current availability and property details."
+
+data-images='[
+"https://photos.zillowstatic.com/fp/409e62e17f4ca516a5159e84342c8685-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/929c419e6c908b6127929d23d6d3cfab-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/d79b0c3633830278aef99d3d33440dc5-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/9e872643031884e0de1207fb1d93ae92-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/0a63d3eba4ff68312a7ec65af5e7f45b-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/97055730ab82a730f2571b63ab9dda44-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/5e258e4e6ebc7a64b31b85de4733ad13-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/9f3f712627bff37d33c8623fb473c8b7-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/c80b66a1d1f76be6942d73a191363588-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/d71b9eb4507fbc98b5dc70db3b0f1fe3-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/e9c6f4768bc531b8e5688a496bde699d-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/ac3545afcef17c4558f410fe7b4faf21-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/b6b357fe5de0cf4ce6433f803890456c-uncropped_scaled_within_1536_1152.webp"
+]'>
+
+<div class="property-image">
+
+<img
+src="https://photos.zillowstatic.com/fp/6d0e076edb557bb9d690cad5e6556dd6-uncropped_scaled_within_1536_1152.webp"
+alt="Cozy two bedroom home in Florida">
+
+<div class="status">
+AVAILABLE
+</div>
+
+<div class="price">
+$1,300
+<span>/ month</span>
+</div>
+
+</div>
+
+
+<div class="property-content">
+
+<h3>
+Cozy 2 Bedroom Home
+</h3>
+
+<div class="location">
+📍 Florida
+</div>
+
+<div class="features">
+
+<span>
+🛏 2 Beds
+</span>
+
+<span>
+🚿 2 Baths
+</span>
+
+<span>
+🐾 Pet Friendly
+</span>
+
+</div>
+
+
+<div class="property-bottom">
+
+<button
+class="details-btn view-property"
+type="button">
+
+View Property
+
+</button>
+
+<a
+href="#message"
+class="apply-small">
+
+Contact Us
+
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<!-- ======================================================
+     PROPERTY 4
+====================================================== -->
+
+<article
+class="property-card"
+
+data-title="Family 3 Bedroom House"
+
+data-price="$1,620 / month"
+
+data-location="Georgia"
+
+data-description="Family three-bedroom rental house with two bathrooms and garage parking. Contact us for current availability and property details."
+
+data-images='[
+"https://photos.zillowstatic.com/fp/6b158acdb12c5481d5c7c58c1fae2733-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/bcf2f147322920c56928708d1a98e724-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/0d459332c4859ee92a79b71d01e4cf5e-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/c413b92fe260a5c5e16b727c108b7851-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/729d642117f2d958c2db6aa6edfd71b1-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/5113f4988eaeee17a955432668a8ac0a-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/6c025a288d7663714d69534036288d91-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/60e1770fef7d6e6beef4530c5b340de2-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/72f5567ae1ceb6e29df6271cbb10ffc1-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/20761b87c77ee56fe0fa60886290409e-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/0d77e96c363e9b162fbbf8040c07f0d0-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/ddb91ff5ce7111e445fd630251aecf16-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/37f9adfd1bd63954b1e475c841d204fa-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/4cb89b289aa3ae64ce63f40db260cf34-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/d0ada4099fbbae80f1e60b5f03ed7e6d-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/41a96477ec5100d378dab7a8ac4b61cb-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/92d9b0e0cb7fe95fc78b79f10c161fe2-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/68d76a68ecb09a87046ff90e6a929730-uncropped_scaled_within_1536_1152.webp"
+]'>
+
+<div class="property-image">
+
+<img
+src="https://photos.zillowstatic.com/fp/d45ebc1e8c9528fc2eee167ce5ac5adf-cc_ft_768.webp"
+alt="Family three bedroom house in Georgia">
+
+<div class="status">
+AVAILABLE
+</div>
+
+<div class="price">
+$1,620
+<span>/ month</span>
+</div>
+
+</div>
+
+
+<div class="property-content">
+
+<h3>
+Family 3 Bedroom House
+</h3>
+
+<div class="location">
+📍 Georgia
+</div>
+
+<div class="features">
+
+<span>
+🛏 3 Beds
+</span>
+
+<span>
+🚿 2 Baths
+</span>
+
+<span>
+🚗 Garage
+</span>
+
+</div>
+
+
+<div class="property-bottom">
+
+<button
+class="details-btn view-property"
+type="button">
+
+View Property
+
+</button>
+
+<a
+href="#message"
+class="apply-small">
+
+Contact Us
+
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<!-- ======================================================
+     PROPERTY 5
+====================================================== -->
+
+<article
+class="property-card"
+
+data-title="Elegant 2 Bedroom Apartment"
+
+data-price="$1,100 / month"
+
+data-location="Arizona"
+
+data-description="Elegant two-bedroom apartment with two bathrooms and parking. Contact us for current availability and property details."
+
+data-images='[
+"https://photos.zillowstatic.com/fp/8fb4bcd77976ab08df65dce739d8ad7b-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/f5741db03ce35c4c57413f652158ea30-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/e9f6d9c4570a95e2736414a36a518eaa-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/ed929e51ae189e0574bfff74525961b7-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/5e5bfbe2bfc383456f809d52d5056861-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/617eae6332de4e34a26b76d6b83db2f9-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/0966e8dd601a4d379d4bf68eb59dcfe4-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/780f1eae728220da3a18daeb20b7b512-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/65277fc4447bff9233f1915e39ccd4e0-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/88bac5eb815758eee513430aeb718c1e-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/574006e84613c0ab838aa99722773f6b-uncropped_scaled_within_1536_1152.webp",
+"https://photos.zillowstatic.com/fp/e23d197f3e507588b38898f9335f1867-uncropped_scaled_within_1536_1152.webp"
+]'>
+
+<div class="property-image">
+
+<img
+src="https://photos.zillowstatic.com/fp/a992c4d09bd653372176e62b1e58a9d1-cc_ft_768.webp"
+alt="Elegant two bedroom apartment in Arizona">
+
+<div class="status">
+AVAILABLE
+</div>
+
+<div class="price">
+$1,100
+<span>/ month</span>
+</div>
+
+</div>
+
+
+<div class="property-content">
+
+<h3>
+Elegant 2 Bedroom Apartment
+</h3>
+
+<div class="location">
+📍 Arizona
+</div>
+
+<div class="features">
+
+<span>
+🛏 2 Beds
+</span>
+
+<span>
+🚿 2 Baths
+</span>
+
+<span>
+🚗 Parking
+</span>
+
+</div>
+
+
+<div class="property-bottom">
+
+<button
+class="details-btn view-property"
+type="button">
+
+View Property
+
+</button>
+
+<a
+href="#message"
+class="apply-small">
+
+Contact Us
+
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<!-- ======================================================
+     PROPERTY 6
+====================================================== -->
+
+<article
+class="property-card"
+
+data-title="Charming 1 Bedroom Apartment"
+
+data-price="$1,050 / month"
+
+data-location="Ohio"
+
+data-description="Charming one-bedroom apartment with one bathroom and pet-friendly features. Contact us for current availability and property details."
+
+data-images='[
+"https://photos.zillowstatic.com/fp/35da78bca50e1f90eccaf58a57d32e93-cc_ft_768.webp",
+"https://photos.zillowstatic.com/fp/d3155b7dd534cb8f693016b00f8b99a0-cc_ft_768.webp",
+"https://photos.zillowstatic.com/fp/187617d1bb2a2da37d2552f75574a1ce-cc_ft_384.webp",
+"https://photos.zillowstatic.com/fp/cdce6d74652c7b4f7ef1cc4c9b87526d-cc_ft_384.webp",
+"https://photos.zillowstatic.com/fp/045e18c70556cdd2cd58d124ba05fa2b-cc_ft_768.webp"
+]'>
+
+<div class="property-image">
+
+<img
+src="https://photos.zillowstatic.com/fp/97da7ce8de24bc1bd3f8f90cb349f760-cc_ft_768.webp"
+alt="Charming one bedroom apartment in Ohio">
+
+<div class="status">
+AVAILABLE
+</div>
+
+<div class="price">
+$1,050
+<span>/ month</span>
+</div>
+
+</div>
+
+
+<div class="property-content">
+
+<h3>
+Charming 1 Bedroom Apartment
+</h3>
+
+<div class="location">
+📍 Ohio
+</div>
+
+<div class="features">
+
+<span>
+🛏 1 Bed
+</span>
+
+<span>
+🚿 1 Bath
+</span>
+
+<span>
+🐾 Pet Friendly
+</span>
+
+</div>
+
+
+<div class="property-bottom">
+
+<button
+class="details-btn view-property"
+type="button">
+
+View Property
+
+</button>
+
+<a
+href="#message"
+class="apply-small">
+
+Contact Us
+
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section
+class="section"
+id="about">
+
+<div class="container about-grid">
+
+
+<div class="about-image">
+
+<img
+src="https://photos.zillowstatic.com/fp/a6867873613d500cd225a2aaa970065e-cc_ft_768.webp"
+alt="Rental home">
+
+</div>
+
+
+<div class="about-copy">
+
+<div class="kicker">
+About Jenifer Leslie Rentals
+</div>
+
+<h2>
+A simpler way to search for your next rental.
+</h2>
+
+<p>
+Jenifer Leslie Rentals helps prospective tenants browse available
+homes and apartments and communicate their rental preferences
+in one place.
+</p>
+
+<p>
+We rent properties across six states in the United States:
+North Carolina, Arizona, Texas, Ohio, Florida and Georgia.
+</p>
+
+<p>
+Use the property gallery to review a listing, then send your
+preferred ZIP code, bedroom count, bathroom count and rental
+budget through the request form.
+</p>
+
+
+<div class="stats">
+
+<div class="stat">
+
+<strong>
+6+
+</strong>
+
+<span>
+Featured listings
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong>
+24/7
+</strong>
+
+<span>
+Online requests
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong>
+1
+</strong>
+
+<span>
+Easy contact form
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SERVICES
+========================================================= -->
+
+<section
+class="section tour-section"
+id="tour">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+
+<div class="kicker">
+    House tours
+</div>
+
+<h2>
+    Schedule a private tour.
+</h2>
+
+</div>
+
+<p>
+    Choose a preferred date and time and we will confirm the tour with you.
+</p>
+
+</div>
+
+<form
+    action="https://formspree.io/f/xrpzjlzj"
+    method="POST"
+    class="property-search-form"
+    id="tourForm">
+
+    <div class="field field-full">
+        <label for="tourProperty">Property *</label>
+        <select id="tourProperty" name="property" required>
+            <option value="">Select a property</option>
+        </select>
+    </div>
+
+    <div class="field">
+        <label for="tourName">Full Name *</label>
+        <input id="tourName" name="name" type="text" required>
+    </div>
+
+    <div class="field">
+        <label for="tourEmail">Email *</label>
+        <input id="tourEmail" name="email" type="email" required>
+    </div>
+
+    <div class="field">
+        <label for="tourPhone">Phone *</label>
+        <input id="tourPhone" name="phone" type="tel" required>
+    </div>
+
+    <div class="field">
+        <label for="tourDate">Preferred Date *</label>
+        <input id="tourDate" name="tour_date" type="date" required>
+    </div>
+
+    <div class="field">
+        <label for="tourTime">Preferred Time *</label>
+        <input id="tourTime" name="tour_time" type="time" required>
+    </div>
+
+    <div class="field field-full">
+        <label for="tourMessage">Message</label>
+        <textarea id="tourMessage" name="message" placeholder="Anything we should know before the tour?"></textarea>
+    </div>
+
+    <input type="hidden" name="_subject" value="New House Tour Request">
+
+    <div class="form-actions">
+        <div class="form-note">We will contact you to confirm availability.</div>
+        <button class="search-submit" type="submit">Request House Tour</button>
+    </div>
+
+</form>
+
+<div class="form-success" id="tourSuccess">
+    <div class="success-icon">✓</div>
+    <h3>Tour request sent.</h3>
+    <p>Thank you. Jenifer Leslie Rentals will contact you to confirm the property tour.</p>
+    <a href="#properties">Return to Properties</a>
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SERVICES
+========================================================= -->
+
+<section
+class="section services"
+id="services">
+
+<div class="container">
+
+
+<div class="section-head">
+
+<div>
+
+<div class="kicker">
+What we offer
+</div>
+
+<h2>
+Rental support made simple.
+</h2>
+
+</div>
+
+<p>
+Browse, compare and send your preferences from one
+convenient place.
+</p>
+
+</div>
+
+
+
+<div class="service-grid">
+
+
+<div class="service">
+
+<div class="service-icon">
+🏠
+</div>
+
+<h3>
+Property Listings
+</h3>
+
+<p>
+Browse featured homes and apartments with rent,
+location, bedroom, bathroom and amenity information.
+</p>
+
+</div>
+
+
+
+<div class="service">
+
+<div class="service-icon">
+📸
+</div>
+
+<h3>
+Photo Galleries
+</h3>
+
+<p>
+Open a listing to view its available property photos.
+Additional interior photos can be added to each gallery.
+</p>
+
+</div>
+
+
+
+<div class="service">
+
+<div class="service-icon">
+✉️
+</div>
+
+<h3>
+Rental Requests
+</h3>
+
+<p>
+Send your preferred ZIP code, property type, bedroom
+count, bathroom count and budget by email.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section
+class="section contact"
+id="contact">
+
+<div class="container contact-grid">
+
+
+<div>
+
+<div class="kicker">
+Get in touch
+</div>
+
+<h2>
+Have a question about a property?
+</h2>
+
+<p>
+Send a message with the listing you are interested in
+or tell us what kind of rental you are looking for.
+</p>
+
+
+<div class="hero-actions">
+
+<a
+class="btn btn-primary"
+href="#message">
+
+Send a Message
+
+</a>
+
+<a
+class="btn btn-outline"
+href="mailto:jennyrentals002@gmail.com">
+
+Email Us
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="contact-card">
+
+
+<div class="contact-row">
+
+<div>
+✉️
+</div>
+
+<div>
+
+<b>
+Email
+</b>
+
+<span>
+jennyrentals002@gmail.com
+</span>
+
+</div>
+
+</div>
+
+
+
+<div class="contact-row">
+
+<div>
+🏘️
+</div>
+
+<div>
+
+<b>
+Property coverage
+</b>
+
+<span>
+View the locations shown on our current listings.
+</span>
+
+</div>
+
+</div>
+
+
+
+<div class="contact-row">
+
+<div>
+💬
+</div>
+
+<div>
+
+<b>
+Rental requests
+</b>
+
+<span>
+Use the online form to tell us your preferred ZIP code
+and property requirements.
+</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+<div class="container">
+
+
+<div class="footer-grid">
+
+
+<div>
+
+    <div class="footer-logo">
+Jenifer Leslie<span> Rentals</span>
+</div>
+
+<p>
+Browse rental homes and apartments and send your
+property preferences online.
+</p>
+
+</div>
+
+
+
+<div>
+
+<h4>
+Quick Links
+</h4>
+
+<ul>
+
+<li>
+<a href="#home">
+Home
+</a>
+</li>
+
+<li>
+<a href="#properties">
+Properties
+</a>
+</li>
+
+<li>
+<a href="#about">
+About
+</a>
+</li>
+
+<li>
+<a href="#message">
+Send a Message
+</a>
+</li>
+
+</ul>
+
+</div>
+
+
+
+<div>
+
+<h4>
+Contact
+</h4>
+
+<ul>
+
+<li>
+<a href="mailto:jennyrentals002@gmail.com">
+jennyrentals002@gmail.com
+</a>
+</li>
+
+<li>
+<a href="#contact">
+Property Questions
+</a>
+</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+© <span id="year"></span>
+Jenifer Leslie Rentals. All rights reserved.
+
+</div>
+
+
+</div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     FLOATING EMAIL BUTTON
+========================================================= -->
+
+<a
+class="floating-email"
+href="mailto:jennyrentals002@gmail.com"
+aria-label="Email Jenifer Leslie Rentals"
+title="Email Jenifer Leslie Rentals">
+
+✉
+
+</a>
+
+
+
+<!-- =========================================================
+     PROPERTY GALLERY MODAL
+========================================================= -->
+
+<div
+class="modal"
+id="propertyModal"
+aria-hidden="true">
+
+
+<div class="modal-panel">
+
+
+<div class="modal-gallery">
+
+
+<button
+class="modal-close"
+id="modalClose"
+aria-label="Close gallery">
+
+×
+
+</button>
+
+
+<div class="gallery-main">
+
+
+<button
+class="gallery-arrow gallery-prev"
+id="galleryPrev"
+aria-label="Previous photo">
+
+‹
+
+</button>
+
+
+<img
+id="galleryImage"
+src=""
+alt="Property photo">
+
+
+<button
+class="gallery-arrow gallery-next"
+id="galleryNext"
+aria-label="Next photo">
+
+›
+
+</button>
+
+
+<div
+class="gallery-counter"
+id="galleryCounter">
+
+1 / 1
+
+</div>
+
+
+</div>
+
+
+<div
+class="gallery-dots"
+id="galleryDots">
+</div>
+
+
+</div>
+
+
+
+<div class="modal-body">
+
+
+<div class="modal-title-row">
+
+<div>
+
+<div class="kicker">
+Property details
+</div>
+
+<h2 id="modalTitle">
+</h2>
+
+<div
+class="modal-location"
+id="modalLocation">
+</div>
+
+</div>
+
+
+<div
+class="modal-price"
+id="modalPrice">
+</div>
+
+</div>
+
+
+<div
+class="modal-features"
+id="modalFeatures">
+</div>
+
+
+<p
+class="modal-description"
+id="modalDescription">
+</p>
+
+
+<div class="modal-actions">
+
+<a
+href="#message"
+class="btn btn-dark"
+id="modalContact">
+
+Send a Message
+
+</a>
+
+<a
+href="mailto:jennyrentals002@gmail.com"
+class="btn"
+style="border:1px solid #dfe3e7">
+
+Email Us
+
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+menuToggle.addEventListener("click", () => {
+
+    navLinks.classList.toggle("show");
+
+});
+
+
+navLinks.querySelectorAll("a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("show");
+
+    });
+
+});
+
+
+
+/* =========================================================
+   FOOTER YEAR
+========================================================= */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+
+/* =========================================================
+   FORMSPREE FORM
+========================================================= */
+
+const form =
+    document.getElementById("propertyForm");
+
+const formSuccess =
+    document.getElementById("formSuccess");
+
+const anotherMessage =
+    document.getElementById("anotherMessage");
+
+
+form.addEventListener("submit", async (event) => {
+
+    event.preventDefault();
+
+
+    const submitButton =
+        form.querySelector(".search-submit");
+
+
+    const originalText =
+        submitButton.textContent;
+
+
+    submitButton.textContent =
+        "Sending Message...";
+
+
+    submitButton.disabled = true;
+
+
+    try {
+
+        const response =
+            await fetch(
+                form.action,
+                {
+                    method: "POST",
+
+                    body:
+                        new FormData(form),
+
+                    headers: {
+                        "Accept":
+                            "application/json"
+                    }
+                }
+            );
+
+
+        if (response.ok) {
+
+            form.style.display =
+                "none";
+
+            formSuccess.classList.add(
+                "show"
+            );
+
+            formSuccess.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        } else {
+
+            throw new Error(
+                "Form submission failed."
+            );
+
+        }
+
+    } catch (error) {
+
+        submitButton.textContent =
+            originalText;
+
+        submitButton.disabled =
+            false;
+
+        alert(
+            "There was a problem sending your message. Please try again."
+        );
+
+    }
+
+});
+
+
+
+/* =========================================================
+   SEND ANOTHER MESSAGE
+========================================================= */
+
+anotherMessage.addEventListener(
+    "click",
+    () => {
+
+        form.reset();
+
+        form.style.display =
+            "grid";
+
+        formSuccess.classList.remove(
+            "show"
+        );
+
+
+        const submitButton =
+            form.querySelector(".search-submit");
+
+
+        submitButton.textContent =
+            "✉ Send Message";
+
+
+        submitButton.disabled =
+            false;
+
+
+        form.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }
+);
+
+
+
+/* =========================================================
+   PROPERTY GALLERY
+========================================================= */
+
+const modal =
+    document.getElementById(
+        "propertyModal"
+    );
+
+
+const modalClose =
+    document.getElementById(
+        "modalClose"
+    );
+
+
+const galleryImage =
+    document.getElementById(
+        "galleryImage"
+    );
+
+
+const galleryPrev =
+    document.getElementById(
+        "galleryPrev"
+    );
+
+
+const galleryNext =
+    document.getElementById(
+        "galleryNext"
+    );
+
+
+const galleryCounter =
+    document.getElementById(
+        "galleryCounter"
+    );
+
+
+const galleryDots =
+    document.getElementById(
+        "galleryDots"
+    );
+
+
+const modalTitle =
+    document.getElementById(
+        "modalTitle"
+    );
+
+
+const modalPrice =
+    document.getElementById(
+        "modalPrice"
+    );
+
+
+const modalLocation =
+    document.getElementById(
+        "modalLocation"
+    );
+
+
+const modalDescription =
+    document.getElementById(
+        "modalDescription"
+    );
+
+
+const modalFeatures =
+    document.getElementById(
+        "modalFeatures"
+    );
+
+
+let currentImages = [];
+
+let currentIndex = 0;
+
+
+
+/* =========================================================
+   RENDER GALLERY
+========================================================= */
+
+function renderGallery() {
+
+    if (!currentImages.length) {
+        return;
+    }
+
+
+    galleryImage.src =
+        currentImages[currentIndex];
+
+
+    galleryCounter.textContent =
+        `${currentIndex + 1} / ${currentImages.length}`;
+
+
+    galleryDots.innerHTML = "";
+
+
+    currentImages.forEach(
+        (_, index) => {
+
+            const dot =
+                document.createElement(
+                    "button"
+                );
+
+
+            dot.className =
+                "gallery-dot" +
+                (
+                    index === currentIndex
+                        ? " active"
+                        : ""
+                );
+
+
+            dot.type =
+                "button";
+
+
+            dot.setAttribute(
+                "aria-label",
+                `Go to photo ${index + 1}`
+            );
+
+
+            dot.addEventListener(
+                "click",
+                () => {
+
+                    currentIndex =
+                        index;
+
+                    renderGallery();
+
+                }
+            );
+
+
+            galleryDots.appendChild(
+                dot
+            );
+
+        }
+    );
+
+
+    const multiple =
+        currentImages.length > 1;
+
+
+    galleryPrev.style.display =
+        multiple
+            ? "block"
+            : "none";
+
+
+    galleryNext.style.display =
+        multiple
+            ? "block"
+            : "none";
+
+
+    galleryDots.style.display =
+        multiple
+            ? "flex"
+            : "none";
+
+}
+
+
+
+/* =========================================================
+   OPEN PROPERTY
+========================================================= */
+
+function openProperty(card) {
+
+    try {
+
+        currentImages =
+            JSON.parse(
+                card.dataset.images
+            );
+
+    } catch {
+
+        currentImages = [];
+
+    }
+
+
+    if (!currentImages.length) {
+
+        const cardImage =
+            card.querySelector(".property-image img");
+
+
+        if (cardImage && cardImage.src) {
+            currentImages = [cardImage.src];
+        }
+
+    }
+
+
+    currentIndex = 0;
+
+
+    modalTitle.textContent =
+        card.dataset.title ||
+        "Property";
+
+
+    modalPrice.textContent =
+        card.dataset.price ||
+        "";
+
+
+    modalLocation.textContent =
+        "📍 " +
+        (
+            card.dataset.location ||
+            ""
+        );
+
+
+    modalDescription.textContent =
+        card.dataset.description ||
+        "";
+
+
+    modalFeatures.innerHTML = "";
+
+
+    card
+        .querySelectorAll(".features span")
+        .forEach(feature => {
+
+            const item =
+                document.createElement(
+                    "span"
+                );
+
+
+            item.textContent =
+                feature.textContent;
+
+
+            item.style.background =
+                "#f5f6f7";
+
+            item.style.border =
+                "1px solid #eceef0";
+
+            item.style.padding =
+                "6px 8px";
+
+            item.style.borderRadius =
+                "5px";
+
+            item.style.fontSize =
+                "11px";
+
+
+            modalFeatures.appendChild(
+                item
+            );
+
+        });
+
+
+    modal.classList.add("open");
+
+    modal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+    document.body.classList.add(
+        "modal-open"
+    );
+
+
+    renderGallery();
+
+}
+
+
+
+/* =========================================================
+   PROPERTY BUTTONS
+========================================================= */
+
+document
+    .querySelectorAll(".view-property")
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                openProperty(
+                    button.closest(
+                        ".property-card"
+                    )
+                );
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   HOUSE TOUR BUTTONS
+========================================================= */
+
+const tourProperty = document.getElementById("tourProperty");
+const tourForm = document.getElementById("tourForm");
+const tourSuccess = document.getElementById("tourSuccess");
+
+document
+    .querySelectorAll(".property-card")
+    .forEach(card => {
+
+        const tourButton = document.createElement("a");
+        const title = card.dataset.title;
+        const images = JSON.parse(card.dataset.images);
+        const photoBadge = document.createElement("span");
+
+        photoBadge.className = "photo-count";
+        photoBadge.textContent = `View ${images.length} photos`;
+        photoBadge.setAttribute("aria-label", `${images.length} photos available for ${title}`);
+        card.querySelector(".property-image").appendChild(photoBadge);
+
+        tourButton.className = "tour-btn";
+        tourButton.href = `house-tour.html?property=${encodeURIComponent(title)}`;
+        tourButton.textContent = "Request House Tour";
+
+        card.querySelector(".property-bottom").appendChild(tourButton);
+
+        const option = document.createElement("option");
+        option.value = title;
+        option.textContent = title;
+        tourProperty.appendChild(option);
+
+    });
+
+const requestedProperty = new URLSearchParams(
+    window.location.hash.split("?")[1] || ""
+).get("property");
+
+if (requestedProperty) {
+    tourProperty.value = requestedProperty;
+}
+
+tourForm.addEventListener("submit", async event => {
+
+    event.preventDefault();
+
+    const submitButton = tourForm.querySelector("button[type='submit']");
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending...";
+
+    try {
+
+        const response = await fetch(tourForm.action, {
+            method: "POST",
+            body: new FormData(tourForm),
+            headers: {
+                Accept: "application/json"
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error("Tour request failed");
+        }
+
+        tourForm.style.display = "none";
+        tourSuccess.classList.add("show");
+
+    } catch (error) {
+
+        submitButton.disabled = false;
+        submitButton.textContent = "Request House Tour";
+        alert("We could not send your request. Please email jennyrentals002@gmail.com.");
+
+    }
+
+});
+
+
+document
+    .querySelectorAll(".property-image")
+    .forEach(image => {
+
+        image.setAttribute(
+            "role",
+            "button"
+        );
+
+        image.setAttribute(
+            "tabindex",
+            "0"
+        );
+
+        image.setAttribute(
+            "aria-label",
+            "Open property photos"
+        );
+
+        const openImageGallery = () => {
+
+            openProperty(
+                image.closest(
+                    ".property-card"
+                )
+            );
+
+        };
+
+        image.addEventListener(
+            "click",
+            openImageGallery
+        );
+
+        image.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "Enter" ||
+                    event.key === " "
+                ) {
+
+                    event.preventDefault();
+                    openImageGallery();
+
+                }
+
+            }
+        );
+
+    });
+
+
+
+/* =========================================================
+   PREVIOUS PHOTO
+========================================================= */
+
+galleryPrev.addEventListener(
+    "click",
+    () => {
+
+        if (!currentImages.length) {
+            return;
+        }
+
+
+        currentIndex =
+            (
+                currentIndex -
+                1 +
+                currentImages.length
+            ) %
+            currentImages.length;
+
+
+        renderGallery();
+
+    }
+);
+
+
+
+/* =========================================================
+   NEXT PHOTO
+========================================================= */
+
+galleryNext.addEventListener(
+    "click",
+    () => {
+
+        if (!currentImages.length) {
+            return;
+        }
+
+
+        currentIndex =
+            (
+                currentIndex +
+                1
+            ) %
+            currentImages.length;
+
+
+        renderGallery();
+
+    }
+);
+
+
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+function closeModal() {
+
+    modal.classList.remove(
+        "open"
+    );
+
+
+    modal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    document.body.classList.remove(
+        "modal-open"
+    );
+
+}
+
+
+modalClose.addEventListener(
+    "click",
+    closeModal
+);
+
+
+modal.addEventListener(
+    "click",
+    event => {
+
+        if (
+            event.target === modal
+        ) {
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   KEYBOARD CONTROLS
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            !modal.classList.contains(
+                "open"
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        if (
+            event.key ===
+            "Escape"
+        ) {
+
+            closeModal();
+
+        }
+
+
+        if (
+            event.key ===
+            "ArrowLeft" &&
+            currentImages.length > 1
+        ) {
+
+            currentIndex =
+                (
+                    currentIndex -
+                    1 +
+                    currentImages.length
+                ) %
+                currentImages.length;
+
+
+            renderGallery();
+
+        }
+
+
+        if (
+            event.key ===
+            "ArrowRight" &&
+            currentImages.length > 1
+        ) {
+
+            currentIndex =
+                (
+                    currentIndex +
+                    1
+                ) %
+                currentImages.length;
+
+
+            renderGallery();
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   PHONE SWIPE SUPPORT
+========================================================= */
+
+let touchStartX = 0;
+
+
+galleryImage.addEventListener(
+    "touchstart",
+    event => {
+
+        touchStartX =
+            event.changedTouches[0]
+                .screenX;
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+galleryImage.addEventListener(
+    "touchend",
+    event => {
+
+        const touchEndX =
+            event.changedTouches[0]
+                .screenX;
+
+
+        const distance =
+            touchEndX -
+            touchStartX;
+
+
+        if (
+            Math.abs(distance) < 45 ||
+            currentImages.length < 2
+        ) {
+
+            return;
+
+        }
+
+
+        if (distance < 0) {
+
+            currentIndex =
+                (
+                    currentIndex +
+                    1
+                ) %
+                currentImages.length;
+
+        } else {
+
+            currentIndex =
+                (
+                    currentIndex -
+                    1 +
+                    currentImages.length
+                ) %
+                currentImages.length;
+
+        }
+
+
+        renderGallery();
+
+    }
+);
+
+</script>
+
+</body>
+</html>
